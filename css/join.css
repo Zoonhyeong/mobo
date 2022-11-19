@@ -69,3 +69,20 @@
 }#go-login a[href]{
     color: #7D2D00;
 }
+hr{
+border: 0;
+height: 1px;
+background-color: #7D2D00;
+}
+input[type=checkbox]{
+    display: none;
+}
+input[type=checkbox] + label{
+    cursor: pointer; 
+    padding-left: 50px; 
+    background-repeat: no-repeat;
+    background-image: url("../img/no-check.png");
+}
+input[type=checkbox]:checked + label{
+    background-image: url("../img/yes-check.png");
+}
