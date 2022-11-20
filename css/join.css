@@ -69,20 +69,25 @@
 }#go-login a[href]{
     color: #7D2D00;
 }
-hr{
-border: 0;
-height: 1px;
-background-color: #7D2D00;
-}
 input[type=checkbox]{
     display: none;
 }
 input[type=checkbox] + label{
+    font-weight: bold;
+    margin-left: 50px;
+    line-height: 40px;
     cursor: pointer; 
-    padding-left: 50px; 
+    color: rgba(0, 0, 0, 0.6);
+    padding-left: 60px; 
     background-repeat: no-repeat;
     background-image: url("../img/no-check.png");
 }
 input[type=checkbox]:checked + label{
     background-image: url("../img/yes-check.png");
+}
+.agreementLicense{
+    font-weight: 600;
+    color: rgba(0,0,0,0.6);
+    text-align: right;
+    display:inline-block; 
 }
