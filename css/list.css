@@ -1,3 +1,6 @@
+body{
+    min-height: 800px;
+}
 #list-box{
     width: 547px;
     height: 700px;
@@ -164,8 +167,6 @@
 
 .fa-plus{
     color: #565C60;
-    width: 36px;
-    height: 36px;
 }
 
 #text-bord2{
@@ -180,6 +181,51 @@
     margin: 0;
 }
 
+#folder-create{
+    display: block;
+    width: 250px;
+    height: 40px;
+    margin: 0 auto;
+    background-color: #fccf75;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-indent: 10px;
+    text-align: center;
+}
+
+#folder-create::placeholder{
+    text-indent: 10px;
+    font-weight: bold;
+    color: #4e260f;
+    text-align: center;
+}
+
+#folder-create:focus{
+    outline: none;
+}
+
+.folder-create-box{
+    display: block;
+    width: 250px;
+    height: 60px;
+    margin: 0 auto;
+    background-color: #EB983C;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #2B1200;
+}
+
+.logo-img{
+    width: 130px;
+    margin-top: 30px;
+}
+
+#plus > button{
+    border: none;
+}
 /*화면 비율이 작아질 경우 스타일 변경*/
 @media screen and (max-width: 550px){
     #list-box{

@@ -9,6 +9,46 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/e26708e58d.js" crossorigin="anonymous"></script>
     <script src="../js/list.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <style>
+        #pop-up{
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        #pop-up > article{
+            width: 300px;
+            height: 350px;
+            position: relative;
+            z-index: 2;
+            top: 300px;
+            background: #EDEDED;;
+            border-radius: 10px;
+            border: 3px solid #7D2D00;
+            box-shadow: 2px 2px 5px rgb(66, 66, 66);
+            margin: auto;
+            cursor: pointer;
+            text-align: center;
+        }
+        .black{
+            background: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#plus > button:first-of-type").click(function(){
+                $("#pop-up").fadeIn();
+                $("#pop-up").addClass("black");
+            });
+            $("#pop-up > article > form > .folder-create-box").click(function(){
+                $(this).parent().fadeOut();
+            });
+        })
+    </script>
 </head>
 <body>
 
@@ -90,15 +130,26 @@
                         <p class="sub-folder-name">food</p>
                         <i class="fa-solid fa-bars"></i>
                     </div>
-                    <div class="list-plus-box">
-                        <i class="fa-solid fa-plus"></i>
+                    <div id="pop-up">
+                        <article>
+                            <img src="../img/logo.png" alt="logo" class="logo-img">
+                            <form action="#">
+                                <input type="text" name="folder-create" id="folder-create" placeholder="폴더명을 입력하세요">
+                                <input type="submit" value="폴더추가" class="folder-create-box">
+                            </form>
+                        </article>
+                    </div>
+                    <div class="list-plus-box" id="plus">
+                        <button>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="flex-row-center" id="bottom"><p>MYONGJI Uni. Team Project</p></div>
+    <div class="flex-row-center" id="bottom" style="z-index: 3;"><p>MYONGJI Uni. Team Project</p></div>
 </div>
 
 </body>
