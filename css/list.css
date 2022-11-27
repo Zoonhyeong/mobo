@@ -108,12 +108,14 @@ body{
 }
 
 .scroll-area{
+    position: absolute;
     box-sizing: border-box;
     width: 456px;
     max-height: 430px;
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 5px;
+    scroll-behavior: smooth;
 }
 
 .scroll-area::-webkit-scrollbar{
@@ -163,6 +165,7 @@ body{
     margin-bottom: 20px;
     background-color: #F0F0F0;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .fa-plus{
@@ -205,17 +208,38 @@ body{
     outline: none;
 }
 
-.folder-create-box{
-    display: block;
+.create-btn-box{
+    box-sizing: border-box;
     width: 250px;
-    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.folder-create-box{
+    width: 120px;
+    height: 50px;
     margin: 0 auto;
     background-color: #EB983C;
-    margin-top: 20px;
+    margin-top: 10px;
     border: none;
     border-radius: 10px;
     font-weight: bold;
     color: #2B1200;
+    margin-right: 5px;
+}
+
+.folder-create-cancel{
+    width: 120px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #EB983C;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #2B1200;
+    margin-left: 5px;
 }
 
 .logo-img{
@@ -227,6 +251,40 @@ body{
     border: none;
 }
 
+.line{
+    width: 440px;
+    height: 2px;
+    border: none;
+    background-color: #9D5F37;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.sub-btn button{
+    position: relative; 
+    left: 390px; 
+    bottom: -350px;
+    border: none;
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0);
+    width: 80px;
+    height: 80px;
+}
+
+.sub-btn img{
+    width: 80px;
+    height: 80px;
+}
+
+.logo-image{
+    opacity: 0.7;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo-image img{
+    width: 80px;
+}
 
 /*구독정보 페이지*/
 
@@ -316,6 +374,132 @@ body{
     background-color: #EB3C3C;
 }
 
+/*구독정보 등록*/
+.new-sub{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.list-nickname{
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.file-txt{
+    font-size: 16px;
+    height: 40px;
+    width: 300px;
+}
+
+.img-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.fa-image{
+    color: #8f9091;
+}
+
+.input-file-button{
+    padding: 35px 50px; 
+    background-color:#ececec;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.flex-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.flex-box p{
+    color: #2B1200;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-name input[type="text"], .info-price input[type="text"]{
+    width: 346px;
+    height: 60px;
+    background: rgba(245, 245, 245, 0.86);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    text-indent: 10px;
+    border: none;
+}
+
+.info-date input[type="text"]{
+    width: 170px;
+    height: 60px;
+    background: rgba(245, 245, 245, 0.86);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    text-indent: 10px;
+    border: none;
+}
+
+.info-name input[type="text"]::placeholder, .info-price input[type="text"]::placeholder{
+    text-indent: 10px;
+}
+
+.info-date-input-box{
+    width: 346px;
+    font-size: 16px;
+    color: #2B1200;
+}
+
+.info-date-input-box input[type="text"]{
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.info-date-input-box input, .info-date-input-box input::placeholder{
+    text-align: center;
+    margin-bottom: 20px;
+    text-indent: 0px;
+}
+
+.info-date-input-box p{
+    font-size: 16px;
+}
+
+.info-date-input-box p input[type="text"]{
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-indent: 0px;
+}
+
+.info-date-input-box p input[type="text"]:last-child{
+    margin-left: 20px;
+}
+
+.input-box:focus{
+    outline: none;
+}
+
+.create-btn{
+    width: 465px;
+    height: 60px;
+    background: #9B5319;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 /*화면 비율이 작아질 경우 스타일 변경*/
 @media screen and (max-width: 550px){
     #list-box{
@@ -365,8 +549,57 @@ body{
     .sub-info-detail{
         width: 368px;
     }
-    
+
     .sub-withdrawal-info{
         width: 368px;
     }
+
+    .sub-btn button{
+        position: relative; 
+        left: 320px; 
+        bottom: -350px;
+    }
+    .line{
+        width: 368px;
+    }
+
+    .file-txt{
+        font-size: 13px;
+        height: 40px;
+        width: 250px;
+    }
+
+    /*구독정보 등록 페이지*/
+    .create-btn{
+        width: 390px;
+    }
+
+    .info-name input[type="text"], .info-price input[type="text"]{
+        width: 280px;
+    }
+
+    .info-date-input-box{
+        width: 285px;
+        font-size: 14px;
+    }
+
+    .info-date-input-box p{
+        font-size: 14px;
+    }
+
+    .info-date-input-box p input[type="text"]{
+        width: 40px;
+        border-radius: 10px;
+        margin-right: 5px;
+        text-indent: 0px;
+    }
+
+    .info-date-input-box p input[type="text"]:last-child{
+        margin-left: 10px;
+    }
+
+    .input-box:focus{
+        outline: none;
+    }
+    
 }

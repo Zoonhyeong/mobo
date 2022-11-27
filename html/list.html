@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/e26708e58d.js" crossorigin="anonymous"></script>
     <script src="../js/list.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style>
         #pop-up{
             position: absolute;
@@ -41,19 +42,27 @@
     <script>
         $(document).ready(function(){
             $("#plus > button:first-of-type").click(function(){
-                $("#pop-up").fadeIn();
+                $("#pop-up").fadeIn(500);
                 $("#pop-up").addClass("black");
             });
-            $("#pop-up > article > form > .folder-create-box").click(function(){
-                $(this).parent().fadeOut();
+            $(".folder-create-box").click(function(){
+                if($.trim($("#folder-create").val())==''){
+                    alert("폴더명을 입력해주세요");
+                    return false;
+                }
+                    
+                $("#create-form").submit();
             });
+            $(".folder-create-cancel").click(function(){
+                $("#pop-up").fadeOut(500);
+            })
         })
     </script>
 </head>
 <body>
 
 <div class="flex-col-center">
-    <div id="top">M O B O</div>
+    <div id="top" onclick="listPage()">M O B O</div>
     <div><p id="text-top-join">JOIN</p><p id="text-top-login">LOGIN</p></div>
         <div>
         <p class="flex-row" id="MOBO-SUBLIST-MYSUB">
@@ -76,12 +85,12 @@
                 <p class="list-title">나의 구독 정보</p>
                 <div class="scroll-area">
                     <div class="dropdown">
-                        <div class="list-sub-box box1" onclick="drop_sub_list1()">
+                        <div class="list-sub-box box1 folder" onclick="drop_sub_list1()">
                             <i class="fa-regular fa-folder"></i>
                             <p class="sub-folder-name">movie & streaming</p>
                             <i class="fa-solid fa-bars"></i>
                         </div>
-                        <div style="display: none;" id="drop-content">
+                        <div style="display: none;" id="drop-content" class="folder-detail">
                             <div class="list-sub-detail">
                                 <img src="../img/youtube.png" alt="logo1">
                                 <div class="sub-content">
@@ -91,6 +100,7 @@
                                 </div>
                                 <i class="fa-solid fa-bars"></i>
                             </div>
+                            <div class="line"></div>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -118,7 +128,17 @@
                                 </div>
                                 <i class="fa-solid fa-bars"></i>
                             </div>
+                            <div class="line"></div>
                         </div>
+                    </div>
+                    <div class="list-sub-detail" onclick="subDetail()">
+                        <img src="../img/youtube.png" alt="logo1">
+                        <div class="sub-content">
+                            <p class="sub-name">YOUTUBE PREMIUM 구독</p>
+                            <p class="sub-detail">매월 <span class="pay-day">12</span>일 결제</p>
+                            <p class="sub-detail">월 <span class="pay-price">8,690</span>원</p>
+                        </div>
+                        <i class="fa-solid fa-bars"></i>
                     </div>
                     <div class="list-sub-box box3">
                         <i class="fa-regular fa-folder"></i>
@@ -130,23 +150,36 @@
                         <p class="sub-folder-name">food</p>
                         <i class="fa-solid fa-bars"></i>
                     </div>
-                    <div id="pop-up">
-                        <article>
-                            <img src="../img/logo.png" alt="logo" class="logo-img">
-                            <form action="#">
-                                <input type="text" name="folder-create" id="folder-create" placeholder="폴더명을 입력하세요">
-                                <input type="submit" value="폴더추가" class="folder-create-box">
-                            </form>
-                        </article>
-                    </div>
                     <div class="list-plus-box" id="plus">
                         <button>
                             <i class="fa-solid fa-plus"></i>
                         </button>
                     </div>
+                    <div class="logo-image">
+                        <img src="../img/icon.png" alt="로고이미지">
+                    </div>
                 </div>
             </div>
+            <div class="sub-btn">
+                <button onclick="nextPage()">
+                    <img src="../img/sub_plus_btn.PNG" alt="구독정보 추가버튼">
+                </button>
+            </div>
         </div>
+        <!-- 팝업영역 -->
+        <div id="pop-up" class="pop-up">
+            <article>
+                <img src="../img/logo.png" alt="logo" class="logo-img">
+                <form action="#" id="create-form" autocomplete="off">
+                    <input type="text" name="folder-create" id="folder-create" placeholder="폴더명을 입력하세요">
+                    <div class="create-btn-box">
+                        <input type="submit" value="폴더추가" class="folder-create-box">
+                        <input type="button" value="취소" class="folder-create-cancel">
+                    </div>
+                </form>
+            </article>
+        </div>
+        <!-- 팝업영역 끝 -->
     </div>
 
     <div class="flex-row-center" id="bottom" style="z-index: 3;"><p>MYONGJI Uni. Team Project</p></div>

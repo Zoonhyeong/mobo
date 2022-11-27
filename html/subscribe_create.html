@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/e26708e58d.js" crossorigin="anonymous"></script>
     <script src="../js/list.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="../js/list.js"></script>
     <style>
         #pop-up{
             position: absolute;
@@ -64,29 +65,43 @@
     </div>
     <div class="flex-col-center" id="list-box">
         <div id="text-bord2">
-            <div class="list-line list-profile sub-title">
+            <div class="list-line new-sub sub-title">
                 <i class="fa-solid fa-chevron-left" onclick="lastPage()"></i>
-                <p class="list-nickname" style="font-size: 24px;">구독정보</p>
-                <i class="fa-solid fa-pencil"></i>
+                <p class="list-nickname" style="font-size: 24px;">구독정보 등록</p>
             </div>
-            <div class="sub-info-detail">
-                <img src="../img/youtube.png" alt="logo1">
-                <div class="sub-content">
-                    <p class="sub-name" style="min-width: 290px; margin-left: 20px; padding-bottom: 0px;">YOUTUBE PREMIUM 구독</p>
-                    <p class="sub-detail" style="min-width: 290px; margin-left: 20px;">매월 <span class="pay-day">12</span>일 결제</p>
-                </div>
-            </div>
-            <div class="sub-info">
-                <p class="sub-info-day">D - <span>24</span></p>
-                <p class="sub-info-price">월 <span>8,960</span>원</p>
-            </div>
-            <div class="sub-cumulative-price sub-info-detail">
-                <div class="sub-content">
-                    <p class="cumulative-price">누적금액 : <span>160,000</span>원</p>
-                </div>
-            </div>
-            <div class="sub-withdrawal-info">
-                <p class="withdrawal-info">탈퇴정보</p>
+            <div class="sub-form-write">
+                <form action="#">
+                    <div class="img-box">
+                        <label class="input-file-button" for="input-file">
+                            <i class="fa-regular fa-image"></i>
+                        </label>
+                        <input type="file" id="input-file" style="display:none;">
+                        <p class="file-txt">모보는 여러분의 문화생활을 응원합니다</p>
+                    </div>
+
+                    <div class="list-line">
+                        <p class="list-title">기본 정보</p>
+                        <div class="info-name flex-box">
+                            <p>이름</p>
+                            <input type="text" placeholder="구독할 상품명을 입력해주세요" class="input-box">
+                        </div>
+                        <div class="info-price flex-box">
+                            <p>결제 금액</p>
+                            <input type="text" placeholder="정기구독 금액을 입력해주세요" class="input-box">
+                        </div>
+                        <div class="info-date flex-box">
+                            <p>결제 정보</p>
+                            <div class="info-date-input-box">
+                                <input type="text" placeholder="2022.11.05 토요일" class="input-box">부터
+                                <p>
+                                    <input type="text" placeholder="1" class="input-box">개월마다
+                                    <input type="text" placeholder="25" class="input-box">일에 결제됩니다.
+                                </p>
+                            </div>
+                        </div>
+                        <input type="submit" value="정보 등록" class="create-btn">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
