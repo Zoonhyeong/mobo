@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mypage</title>
+    <script src="https://kit.fontawesome.com/e26708e58d.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/mypage.css">
 </head>
@@ -51,10 +53,30 @@
         line-height: 24px;
         
         color: rgba(51, 51, 51, 0.522);
+        margin-left: 10px;
     }
     .graytext:focus{
         outline: none;
     }
+    #user-name{
+        text-align: center;
+    }
+
+    @media screen and (max-width: 550px){
+        .graytext{
+            margin-left: 0px;
+            margin-right: 10px;
+            width: 240px;
+        }
+        .left-text{
+            margin-left: 10px;
+        }
+
+        .browntext{
+            margin-left: 10px;
+        }
+    }
+
 </style>
 <body>
 
@@ -70,15 +92,18 @@
     </div>
 
 
-<div class="flex-col-center" id="my-infomation">
-    <div class="flex-row" id="text-bord">
-        <div id="back-arrow"></div>
-        <p>내 정보</p>
+<div class="flex-col-center" id="list-box">
+    <div id="text-bord2">
+        <div class="list-line list-profile sub-title">
+            <i class="fa-solid fa-chevron-left" onclick="lastPage()"></i>
+            <p class="list-nickname" style="font-size: 24px;">내 정보 수정</p>
+            <i class="fa-solid fa-pencil"></i>
+        </div>
     </div>
     <div id="picture"></div>
     <div id="camera"></div>
     <input type="text" class="graytext" id="user-name" value="배고픈 딸기님">
-    <div style="margin:21px 0 21px; width: 465px;height: 0px;border: 1px solid #7D2D00;"></div>
+    <div class="border-line"></div>
     <form action="./mypage.html">
     <div id="default-infomation">
         <div class="browntext">기본정보</div>
@@ -87,7 +112,7 @@
         <div class="left-text">최근 접속일</div><input class="graytext" value="2022.11.06 17:4"><br>
     </div>
     <div class="flex-row">
-        <input type="submit" id="finish-infomation" value="수정 완료">
+        <input type="submit" class="edit-btn" value="수정 완료">
     </div>
     </form>
 </div>

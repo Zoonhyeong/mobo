@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mypage</title>
+    <script src="https://kit.fontawesome.com/e26708e58d.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/mypage.css">
 </head>
@@ -54,21 +56,24 @@
     </div>
 
 
-<div class="flex-col-center" id="my-infomation">
-    <div class="flex-row" id="text-bord">
-        <div id="back-arrow"></div>
-        <p>내 정보</p>
+<div class="flex-col-center" id="list-box">
+    <div id="text-bord2">
+        <div class="list-line list-profile sub-title">
+            <i class="fa-solid fa-chevron-left" onclick="lastPage()"></i>
+            <p class="list-nickname" style="font-size: 24px;">내 정보</p>
+            <i class="fa-solid fa-pencil" onclick="editPage()"></i>
+        </div>
     </div>
     <div id="picture"></div>
     <div class="browntext" id="user-name"></div>
-    <div style="margin:21px 0 21px; width: 465px;height: 0px;border: 1px solid #7D2D00;"></div>
+    <div class="border-line"></div>
     <div id="default-infomation">
         <div class="browntext">기본정보</div>
         <div class="left-text">E-Mail</div><div id="user-email" class="right-text"></div><br>
         <div class="left-text">H.P</div><div id="user-tel" class="right-text"></div><br>
         <div class="left-text">최근 접속일</div><div id="user-lastconnect" class="right-text"></div><br>
     </div>
-    <div class="flex-row">
+    <div class="flex-row btn-box">
         <div id="withdraw"><p>회원 탈퇴</p></div>
         <a href="./change_mypage.html" id="change-infomation"><p>정보 수정</p></a>
     </div>

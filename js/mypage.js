@@ -8,3 +8,15 @@ window.onload = function() {
     tel.innerHTML = "010 . 1234 . 1234"
     connect.innerHTML = "2022.11.06 17:4"
 }
+
+function lastPage(){
+    history.back();
+}
+
+function nextPage(){
+    location.href="subscribe_create.html"
+}
+
+function editPage(){
+    location.href="change_mypage.html"
+}
