@@ -8,8 +8,20 @@
     <link rel="stylesheet" href="../css/join.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<style>
+    #checking-red-bar{
+        position: absolute;
+        background-color: red;
+        width: 322px;
+        height: 2.5px;
+        top: 495px;
+        margin-left:130px;
+        display: none;
+    }
+</style>
 <body>
 <div class="flex-col-center">
+    <div id="checking-red-bar"></div>
     <div id="top">M O B O</div>
     <div><p id="text-top-join">JOIN</p><p id="text-top-login">LOGIN</p></div>
     <div>
@@ -33,7 +45,7 @@
         </div>
         <div id="box-name-input" class="flex-row">
             <p class="input-name">PW</p>
-            <input id="user-pw" class="input-text" type="password" placeholder="비밀번호를 입력해주세요">
+            <input id="user-pw" class="input-text" minlength="8" type="password" placeholder="비밀번호를 입력해주세요">
         </div>
         <div id="box-name-input" class="flex-row">
             <p class="input-name">PW CHECK</p>
@@ -78,7 +90,7 @@
 <div style="margin:21px 0 21px; width: 465px;height: 0px;border: 1px solid #7D2D00;"></div>
 <br>
 
-        <div class="flex-row-center input-text" id="join-btn">JOIN</div>
+        <button class="flex-row-center input-text" id="join-btn">JOIN</button>
     
     </form>
     <p id="go-login">이미 회원이신가요? <a href="login.html">로그인</a>하러가기</p>
