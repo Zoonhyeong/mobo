@@ -96,7 +96,7 @@ body{
 }
 #back-arrow{
     position: absolute;
-    left: 36%;
+    margin-right: 400px;
     width: 34px;
     height: 34px;
     background-repeat: no-repeat;
