@@ -30,6 +30,8 @@
     font-weight: 800;
     font-size: 26px;
     line-height: 31px;
+    display: flex;
+    align-items:center;
 }
 #go-join{
     font-weight: 550;
