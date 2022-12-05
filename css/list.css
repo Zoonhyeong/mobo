@@ -427,14 +427,25 @@ body{
 }
 
 .info-name input[type="text"], .info-price input[type="text"]{
-    width: 346px;
-    height: 60px;
+    width: 342px;
+    height: 40px;
     background: rgba(245, 245, 245, 0.86);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+    border-radius: 10px;
     text-indent: 10px;
     border: none;
 }
+
+#select-box{
+    width: 344px;
+    height: 40px;
+    background: rgba(245, 245, 245, 0.86);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    text-indent: 10px;
+    border: none;
+}
+
 
 .info-date input[type="text"]{
     width: 170px;
@@ -444,6 +455,10 @@ body{
     border-radius: 15px;
     text-indent: 10px;
     border: none;
+}
+
+.info-date{
+    margin-bottom: 0px;
 }
 
 .info-name input[type="text"]::placeholder, .info-price input[type="text"]::placeholder{
@@ -488,6 +503,14 @@ body{
     outline: none;
 }
 
+#month-box input[type='text'], #week-box input[type='text']{
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    margin-right: 10px;
+    text-indent: 0px;
+}
+
 .create-btn{
     width: 465px;
     height: 60px;
@@ -498,6 +521,15 @@ body{
     color: white;
     font-weight: bold;
     font-size: 18px;
+}
+
+#writing-box{
+    display: block;
+    margin-top: 10px;
+}
+
+#writing-box input[type='text']:focus{
+    outline: none;
 }
 
 /*화면 비율이 작아질 경우 스타일 변경*/
@@ -578,6 +610,10 @@ body{
         width: 280px;
     }
 
+    #select-box{
+        width: 284px;
+    }
+
     .info-date-input-box{
         width: 285px;
         font-size: 14px;
@@ -587,7 +623,7 @@ body{
         font-size: 14px;
     }
 
-    .info-date-input-box p input[type="text"]{
+    #month-box input[type="text"], #week-box input[type="text"]{
         width: 40px;
         border-radius: 10px;
         margin-right: 5px;
