@@ -24,19 +24,31 @@
         <div id="text-bord">
         <p>MOBO LOGIN</p>
         </div>
-        <form class="flex-col-center" action="http://127.0.0.1:8000/api/signin/" name="loginFrom" method="post">
-            <input type="text" class="input-text" id="email-btn" placeholder="아이디를 입력해주세요">
-            <input type="password" class="input-text" id="passwd-btn" placeholder="비밀번호를 입력해주세요" minlength="8">
-            <button class="flex-row-center input-text" id="login-btn">LOGIN</button>
+        <div class="flex-col-center">
+            <input name="username" type="text" class="input-text" id="email-btn" placeholder="아이디를 입력해주세요">
+            <input name="password" type="password" class="input-text" id="passwd-btn" placeholder="비밀번호를 입력해주세요" minlength="8">
+            <button class="flex-row-center input-text" id="login-btn" onclick="show_members()">LOGIN</button>
             <p id="go-join">아직 회원이 아니신가요? <a href="join.html">회원가입</a>하러가기</p>
-        </form>
+        </div>
     </div>
     <div class="flex-row-center" id="bottom"><p>MYONGJI Uni. Team Project</p></div>
 </div>
 
 <script>
     function show_members(){
-        fetch("http://127.0.0.1:8000/api/members/")
+    const username = document.getElementById("email-btn")
+    const password = document.getElementById("passwd-btn")
+
+        fetch("http://127.0.0.1:8000/api/signin/",{
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+            }),
+        })
         .then((result) => {console.log(result);
 
             result.json();

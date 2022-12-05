@@ -37,33 +37,40 @@
             <div id="back-arrow" onclick="location.href='login.html'"></div>
             <p>MOBO JOIN</p>
         </div>
-        <form>
-        <div id="box-name-input" class="flex-row">
+        <div>
+        <div class="box-name-input flex-row">
             <p class="input-name">ID</p>
             <input id="user-id" class="input-text" type="text" placeholder="아이디를 입력해주세요">
             <div id="check-btn" class="input-text flex-row-center">CHECK</div>
         </div>
-        <div id="box-name-input" class="flex-row">
+        <div class="box-name-input flex-row">
             <p class="input-name">PW</p>
             <input id="user-pw" class="input-text" minlength="8" type="password" placeholder="비밀번호를 입력해주세요">
         </div>
-        <div id="box-name-input" class="flex-row">
+        <div class="box-name-input flex-row">
             <p class="input-name">PW CHECK</p>
             <input id="user-pw-check" class="input-text" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요">
         </div>
         <div id="check-massage"></div>
-        <div id="box-name-input" class="flex-row">
+        <div class="box-name-input flex-row">
             <p class="input-name">NICKNAME</p>
             <input id="user-name" class="input-text" type="text" placeholder="별명을 입력해주세요">
         </div>
-        <div id="box-name-input" class="flex-row">
+        <div class="box-name-input flex-row">
             <p class="input-name">E-Mail</p>
             <input id="user-email" class="input-text" type="email" placeholder="이메일을 입력해주세요">
         </div>
-        <div id="box-name-input" class="flex-row">
-            <p class="input-name">H.P</p>
-            <input id="user-tel" class="input-text" type="tel" placeholder="핸드폰번호를 입력해주세요">
+        <div class="box-name-input flex-row">
+            <p class="input-name">INTRO</p>
+            <input id="user-profile" class="input-text" type="text" placeholder="소개글을 입력해주세요">
         </div>
+        <div class="box-name-input flex-row input-img">
+            <p class="input-name">PHOTO</p>
+            <input type="file" id="user-profile-picture">
+            <div class="upload-name">FILE NAME: </div>
+            <label for="user-profile-picture">UPLOAD</label>
+        </div>
+<div>
 <input type="checkbox" id="full-option">
 <label for="full-option">약관에 모두 동의합니다.</label>
 <div style="margin:21px 0 21px; width: 465px;height: 0px;border: 1px solid #7D2D00;"></div>
@@ -89,15 +96,52 @@
 <br>
 <div style="margin:21px 0 21px; width: 465px;height: 0px;border: 1px solid #7D2D00;"></div>
 <br>
+</div>
 
-        <button class="flex-row-center input-text" id="join-btn">JOIN</button>
-    
-    </form>
+<button class="flex-row-center input-text" id="join-btn" onclick="show_members()">JOIN</button>
+</div>
     <p id="go-login">이미 회원이신가요? <a href="login.html">로그인</a>하러가기</p>
     </div>
 
     <div class="flex-row-center" id="bottom"><p>MYONGJI Uni. Team Project</p></div>
 </div>
 </body>
+<script>
+    function show_members(){
+    const username = document.getElementById("user-id")
+    const email = document.getElementById("user-email")
+    const password1 = document.getElementById("user-pw")
+    const password2 = document.getElementById("user-pw-check")
+    const nickname = document.getElementById("user-name")
+    const profile = document.getElementById("user-profile")
+    const profile_image = document.getElementById("user-profile-picture")
+
+        fetch("http://127.0.0.1:8000/api/signup/",{
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            username: username.value,
+            email: email.value,
+            password1: password1.value,
+            password2: password2.value,
+            nickname: nickname.value,
+            profile: profile.value,
+            }),
+        })
+        .then((result) => {console.log(result);
+
+            result.json();
+        })
+        .then((data)=> {
+            console.log(data);
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+    }
+
+</script>
 <script src="/js/join.js"></script>
 </html>
