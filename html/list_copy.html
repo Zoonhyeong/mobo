@@ -51,7 +51,8 @@
                     return false;
                 }
                     
-                const foldername = document.getElementById("folder-create");
+                function create_folder(){
+                    const foldername = document.getElementById("folder-create");
                     const plus_folder_position = document.querySelector('.scroll-area');
                     const newfolder = 
                     `<div class="dropdown">
@@ -71,16 +72,15 @@
                         body: JSON.stringify({
                             group_name: foldername.value,
                             color: "#F8B759",
-                            member: 2,
+                            member: "test10"
                         }),
                     })
                     .then((result) => {console.log(result);
                         result.json();
                         if(result.status==201){
-                            console.log(result);
                             plus_folder_position.insertAdjacentHTML('afterend', newfolder);
                         } else if(result.status==400){
-                            alert("폴더명을 입력해주세요")
+                            alert("폴더명을 다시 입력해주세요")
                         }
                     })
                     .then((data)=> {
@@ -89,6 +89,7 @@
                     .catch((error)=>{
                         console.log(error);
                     });
+                }
             });
             $(".folder-create-cancel").click(function(){
                 $("#pop-up").fadeOut(500);
@@ -113,16 +114,83 @@
     <div class="flex-col-center" id="list-box">
         <div id="text-bord2">
             <div class="list-line list-profile">
-                <p class="list-nickname" id="nickname" value=""></p>
+                <p class="list-nickname" id="nickname">배고픈 딸기님</p>
                 <img src="../img/profile.png" alt="프로필사진" onclick="go_mypage()">
             </div>
             <div class="list-line list-total">
                 <p class="list-title">11월 총 구독비용</p>
-                <p class="list-total-price"><span>0</span>원</p>
+                <p class="list-total-price"><span>123,000</span>원</p>
             </div>
             <div class="list-line list-sub-scroll">
                 <p class="list-title">나의 구독 정보</p>
                 <div class="scroll-area">
+                    <div class="dropdown">
+                        <div class="list-sub-box box1 folder" onclick="drop_sub_list1()">
+                            <i class="fa-regular fa-folder"></i>
+                            <p class="sub-folder-name">movie & streaming</p>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <div style="display: none;" id="drop-content" class="folder-detail">
+                            <div class="list-sub-detail">
+                                <img src="../img/youtube.png" alt="logo1">
+                                <div class="sub-content">
+                                    <p class="sub-name">YOUTUBE PREMIUM 구독</p>
+                                    <p class="sub-detail">매월 <span class="pay-day">12</span>일 결제</p>
+                                    <p class="sub-detail">월 <span class="pay-price">8,690</span>원</p>
+                                </div>
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="list-sub-box box2" onclick="drop_sub_list2()">
+                            <i class="fa-regular fa-folder"></i>
+                            <p class="sub-folder-name">music</p>
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+                        <div style="display: none;" id="drop-content2">
+                            <div class="list-sub-detail">
+                                <img src="../img/youtube.png" alt="logo1">
+                                <div class="sub-content">
+                                    <p class="sub-name">YOUTUBE PREMIUM 구독</p>
+                                    <p class="sub-detail">매월 <span class="pay-day">12</span>일 결제</p>
+                                    <p class="sub-detail">월 <span class="pay-price">8,690</span>원</p>
+                                </div>
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <div class="list-sub-detail">
+                                <img src="../img/youtube.png" alt="logo1">
+                                <div class="sub-content">
+                                    <p class="sub-name">YOUTUBE PREMIUM 구독</p>
+                                    <p class="sub-detail">매월 <span class="pay-day">12</span>일 결제</p>
+                                    <p class="sub-detail">월 <span class="pay-price">8,690</span>원</p>
+                                </div>
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="list-sub-detail" onclick="subDetail()">
+                        <img src="../img/youtube.png" alt="logo1">
+                        <div class="sub-content">
+                            <p class="sub-name">YOUTUBE PREMIUM 구독</p>
+                            <p class="sub-detail">매월 <span class="pay-day">12</span>일 결제</p>
+                            <p class="sub-detail">월 <span class="pay-price">8,690</span>원</p>
+                        </div>
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+
+                    <div class="list-sub-box box3">
+                        <i class="fa-regular fa-folder"></i>
+                        <p class="sub-folder-name">work</p>
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <div class="list-sub-box box4">
+                        <i class="fa-regular fa-folder"></i>
+                        <p class="sub-folder-name">food</p>
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                     <div class="list-plus-box" id="plus">
                         <button>
                             <i class="fa-solid fa-plus"></i>

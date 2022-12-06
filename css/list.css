@@ -133,7 +133,7 @@ body{
     background: #FBE180;
 }
 .box2{
-    background: #F8B759;;
+    background: #F8B759;
 }
 .box3{
     background: #EB983C;
@@ -397,7 +397,8 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    margin-right: 15px;
 }
 
 .fa-image{
@@ -405,12 +406,12 @@ body{
 }
 
 .input-file-button{
-    padding: 35px 50px; 
+    padding: 20px 40px; 
     background-color:#ececec;
     border-radius: 4px;
     color: white;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 .flex-box{
@@ -436,7 +437,7 @@ body{
     border: none;
 }
 
-#select-box{
+#select-box, #select-box2{
     width: 344px;
     height: 40px;
     background: rgba(245, 245, 245, 0.86);
@@ -446,6 +447,9 @@ body{
     border: none;
 }
 
+#select-box2:focus{
+    outline: none;
+}
 
 .info-date input[type="text"]{
     width: 170px;
@@ -455,6 +459,17 @@ body{
     border-radius: 15px;
     text-indent: 10px;
     border: none;
+}
+
+input[type="date"]{
+    width: 150px;
+    height: 40px;
+    background: rgba(245, 245, 245, 0.86);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    text-indent: 10px;
+    border: none;
+    margin-right: 10px;
 }
 
 .info-date{
@@ -610,7 +625,7 @@ body{
         width: 280px;
     }
 
-    #select-box{
+    #select-box, #select-box2{
         width: 284px;
     }
 

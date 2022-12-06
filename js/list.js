@@ -1,3 +1,27 @@
+
+window.onload = function() {
+    const nickname = document.querySelector("#nickname")
+    
+    
+    fetch("http://127.0.0.1:8000/api/members/test10/subscribes-groups",{
+        method: "GET",
+    })
+    .then((result) => {
+        console.log(result);
+        return result.json()
+    })
+    .then((data)=> {
+        console.log(data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
+    //nickname.innerHTML= window.localStorage.setItem('nickname', nickname.value)
+
+}
+
+
 function drop_sub_list1(){
     let click = document.getElementById("drop-content");
     if(click.style.display === "none"){
@@ -39,3 +63,4 @@ function listPage(){
 function go_mypage(){
     location.href="mypage.html"
 }
+

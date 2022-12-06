@@ -53,6 +53,7 @@
             console.log(result);
             result.json();
             if(result.status==200){
+                
                 window.localStorage.setItem('name', username.value)
                 window.localStorage.setItem('password', password.value)
                 location='list.html'
