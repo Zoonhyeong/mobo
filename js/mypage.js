@@ -1,16 +1,22 @@
+const nickname = document.querySelector("#user-name")
+const email = document.querySelector("#user-email")
+const intro = document.querySelector("#user-intro")
+
 window.onload = function() {
-
-    const name = document.querySelector("#user-name")
-    const email = document.querySelector("#user-email")
-    const intro = document.querySelector("#user-intro")
-    const connect = document.querySelector("#user-lastconnect")
-
     fetch("http://127.0.0.1:8000/api/members/test3",{
         method: "GET",
     })
-    .then((result) => {
-        console.log(result);
-        return result.json()
+    .then((result) => {console.log(result);
+        let data = [];
+
+        (async () => {
+        data = await result.json();
+        console.log(data);
+        
+        nickname.innerHTML = data.nickname
+        email.innerHTML  = data.email
+        intro.innerHTML  = data.profile
+        })();
     })
     .then((data)=> {
         console.log(data);
@@ -18,11 +24,6 @@ window.onload = function() {
     .catch((error)=>{
         console.log(error);
     });
-
-    name.innerHTML= window.localStorage.getItem('nickname')
-    email.innerHTML = "something@some.com"
-    intro.innerHTML = "소개글"
-    connect.innerHTML = "2022.11.06 17:4"
 }
 
 function lastPage(){
