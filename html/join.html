@@ -131,8 +131,12 @@
             }),
         })
         .then((result) => {console.log(result);
-
             result.json();
+            if(result.status==201){
+                location='login.html'
+            } else if(result.status==400){
+                alert("이미 있는 id입니다.")
+            }
         })
         .then((data)=> {
             console.log(data);
