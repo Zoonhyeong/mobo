@@ -102,17 +102,17 @@
     </div>
     <div id="picture"></div>
     <div id="camera"></div>
-    <input type="text" class="graytext" id="user-name" value="배고픈 딸기님">
+    <input type="text" class="graytext" id="user-name">
     <div class="border-line"></div>
     <div>
     <div id="default-infomation">
         <div class="browntext">기본정보</div>
-        <div class="left-text">E-Mail</div><input class="graytext" value="something@some.com"><br>
-        <div class="left-text">H.P</div><input class="graytext" value="010 . 1234 . 1234"><br>
-        <div class="left-text">최근 접속일</div><input class="graytext" value="2022.11.06 17:4"><br>
+        <div class="left-text">E-Mail</div><input class="graytext" id="user-email"><br>
+        <div class="left-text">한줄소개</div><input class="graytext" id="user-intro"><br>
+        <div class="left-text">최근 접속일</div><input class="graytext" id="user-lastconnect" readonly><br>
     </div>
     <div class="flex-row">
-        <input type="submit" class="edit-btn" value="수정 완료">
+        <input type="submit" class="edit-btn" value="수정 완료" onclick='put_data()'>
     </div>
     </div>
 </div>
@@ -122,4 +122,5 @@
 </div>
 
 </body>
+<script src="/js/change_mypage.js"></script>
 </html>
