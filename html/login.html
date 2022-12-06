@@ -49,9 +49,17 @@
             password: password.value,
             }),
         })
-        .then((result) => {console.log(result);
-
+        .then((result) => {
+            console.log(result);
             result.json();
+            if(result.status==200){
+                
+                window.localStorage.setItem('name', username.value)
+                window.localStorage.setItem('password', password.value)
+                location='list.html'
+            } else if(result.status==401){
+                alert("아이디나 비밀번호가 일치하지 않습니다")
+            }
         })
         .then((data)=> {
             console.log(data);
@@ -59,6 +67,7 @@
         .catch((error)=>{
             console.log(error);
         });
+
     }
 </script>
 
