@@ -35,3 +35,7 @@ function subDetail(){
 function listPage(){
     location.href="list.html"
 }
+
+function go_mypage(){
+    location.href="mypage.html"
+}
