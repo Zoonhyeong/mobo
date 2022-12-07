@@ -1,4 +1,7 @@
 window.onload = function() {
+
+    var member_id;
+    
     const nickname = document.querySelector("#nickname")
     const price = document.querySelector("#total-price")
     const profile = document.querySelector("#profile-image")
@@ -13,10 +16,15 @@ window.onload = function() {
 
         (async () => {
         data = await result.json();
-        console.log(data);
-        
+        console.log(data.id);
+
         nickname.innerHTML = data.nickname
         // profile.innerHTML = data.profile_image
+
+        var member_id = data.id
+        console.log(member_id)
+
+
         })();
     })
     .then((data)=> {
@@ -25,13 +33,11 @@ window.onload = function() {
     .catch((error)=>{
         console.log(error);
     });
-
     
     fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
         method: "GET",
     })
     .then((result) => {console.log(result);
-        let data = [];
 
         (async () => {
             for(var i=0; i<arrList.length; i++){
@@ -47,7 +53,7 @@ window.onload = function() {
         console.log(error);
     });
 
-    
+
     fetch("http://127.0.0.1:8000/api/members/" + window.localStorage.getItem('name') + "/summary",{
         method: "GET",
     })
@@ -66,8 +72,6 @@ window.onload = function() {
     .catch((error)=>{
         console.log(error);
     });
-
-
     
 
 }
@@ -113,5 +117,76 @@ function listPage(){
 
 function go_mypage(){
     location.href="mypage.html"
+}
+
+function create_folder(){
+    const foldername = document.getElementById("folder-create");
+    const plus_folder_position = document.querySelector('.scroll-area');
+    const newfolder = 
+    `<div class="dropdown">
+        <div class="list-sub-box box2" onclick="drop_sub_list2()">
+            <i class="fa-regular fa-folder"></i>
+            <p class="sub-folder-name">music</p>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    `
+    
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name'),{
+        method: "GET",
+    })
+    .then((result) => {console.log(result);
+        let data = [];
+
+        (async () => {
+            data = await result.json()
+            console.log(data);
+
+            
+        fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                group_name: foldername.value,
+                color: "#F8B759",
+                member: data.id,
+            }),
+        })
+        .then((result) => {console.log(result);
+            result.json();
+            if(result.status==201){
+                console.log(result);
+                plus_folder_position.insertAdjacentHTML('afterend', newfolder);
+            } else if(result.status==400){
+                alert("폴더명을 입력해주세요")
+            }
+        })
+        .then((data)=> {
+            console.log(data);
+        })
+        .catch((error)=>{
+            console.log(error);
+        });
+
+        })();
+
+        // for(let i = 0; i < data.length; i++){
+        //     console.log(option[i])
+        //     console.log(select_folder.value)
+        //     if(option[i] == select_folder.value){
+        //         console.log(i)
+        //     }
+        // }
+    })
+    .then((data)=> {
+        console.log(data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
+
 }
 

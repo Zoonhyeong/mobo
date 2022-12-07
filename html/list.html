@@ -50,45 +50,6 @@
                     alert("폴더명을 입력해주세요");
                     return false;
                 }
-                    
-                const foldername = document.getElementById("folder-create");
-                    const plus_folder_position = document.querySelector('.scroll-area');
-                    const newfolder = 
-                    `<div class="dropdown">
-                        <div class="list-sub-box box2" onclick="drop_sub_list2()">
-                            <i class="fa-regular fa-folder"></i>
-                            <p class="sub-folder-name">music</p>
-                            <i class="fa-solid fa-bars"></i>
-                        </div>
-                    </div>
-                    `
-
-                    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
-                        method: "POST",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            group_name: foldername.value,
-                            color: "#F8B759",
-                            member: 2,
-                        }),
-                    })
-                    .then((result) => {console.log(result);
-                        result.json();
-                        if(result.status==201){
-                            console.log(result);
-                            plus_folder_position.insertAdjacentHTML('afterend', newfolder);
-                        } else if(result.status==400){
-                            alert("폴더명을 입력해주세요")
-                        }
-                    })
-                    .then((data)=> {
-                        console.log(data);
-                    })
-                    .catch((error)=>{
-                        console.log(error);
-                    });
             });
             $(".folder-create-cancel").click(function(){
                 $("#pop-up").fadeOut(500);
@@ -117,7 +78,7 @@
                 <img src="../img/profile.png" alt="프로필사진" onclick="go_mypage()" id="profile-image">
             </div>
             <div class="list-line list-total">
-                <p class="list-title">11월 총 구독비용</p>
+                <p class="list-title">12월 총 구독비용</p>
                 <p class="list-total-price"><span id="total-price"></span>원</p>
             </div>
             <div class="list-line list-sub-scroll">
