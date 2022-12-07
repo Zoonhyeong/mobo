@@ -8,7 +8,7 @@ function sub_create(){
     const unit_month_first = document.getElementById("month-unit")
     const unit_month_date = document.getElementById("month-date")
     const unit_week_first = document.getElementById("week-unit")
-    fetch("http://127.0.0.1:8000/api/members/test10/subscribe",{
+    fetch("http://127.0.0.1:8000/api/members/" + window.localStorage.getItem('name') + "/subscribe",{
         method: "POST",
         headers: {
         "Content-Type": "application/json",
@@ -37,4 +37,57 @@ function sub_create(){
     .catch((error)=>{
         console.log(error);
     });
+
+
+    fetch("http://127.0.0.1:8000/api/members/" + window.localStorage.getItem('name') + "/subscribes-groups",{
+        method: "GET",
+    })
+    .then((result) => {console.log(result);
+        let data_price = [];
+
+        (async () => {
+            data_price = await result.json();
+            console.log(data_price);
+            price.innerHTML = data_price.purchase_price__sum
+        })();
+    })
+    .then((data)=> {
+        console.log(data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
 }
+
+window.onload = function() {
+
+    const select_category = document.querySelector("#select-box2")
+    const select_folder = document.querySelector("#select_folder")
+
+    var arrList = new Array();
+
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
+        method: "GET",
+    })
+    .then((result) => {console.log(result);
+        let data = [];
+
+        (async () => {
+            for(var i=0; i<arrList.length; i++){
+                arrList[i] = await result.json();
+                console.log(arrList);
+                data = await result.json();
+                select_folder.innerHTML = `<option value="` + arrList[i].group_name + `">` + arrList[i].group_name + `</option>`
+            }
+        // data = await result.json();
+        })();
+    })
+    .then((data)=> {
+        console.log(data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+}
+

@@ -1,14 +1,23 @@
-
 window.onload = function() {
     const nickname = document.querySelector("#nickname")
+    const price = document.querySelector("#total-price")
+    const profile = document.querySelector("#profile-image")
+
+    var arrList = new Array();
     
-    
-    fetch("http://127.0.0.1:8000/api/members/test10/subscribes-groups",{
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name'),{
         method: "GET",
     })
-    .then((result) => {
-        console.log(result);
-        return result.json()
+    .then((result) => {console.log(result);
+        let data = [];
+
+        (async () => {
+        data = await result.json();
+        console.log(data);
+        
+        nickname.innerHTML = data.nickname
+        // profile.innerHTML = data.profile_image
+        })();
     })
     .then((data)=> {
         console.log(data);
@@ -17,7 +26,49 @@ window.onload = function() {
         console.log(error);
     });
 
-    //nickname.innerHTML= window.localStorage.setItem('nickname', nickname.value)
+    
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
+        method: "GET",
+    })
+    .then((result) => {console.log(result);
+        let data = [];
+
+        (async () => {
+            for(var i=0; i<arrList.length; i++){
+                arrList[i] = await result.json();
+            }
+        // data = await result.json();
+        })();
+    })
+    .then((arrList)=> {
+        console.log(arrList);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
+    
+    fetch("http://127.0.0.1:8000/api/members/" + window.localStorage.getItem('name') + "/summary",{
+        method: "GET",
+    })
+    .then((result) => {console.log(result);
+        let data_price = [];
+
+        (async () => {
+            data_price = await result.json();
+            console.log(data_price);
+            price.innerHTML = data_price.purchase_price__sum
+        })();
+    })
+    .then((data)=> {
+        console.log(data);
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
+
+    
 
 }
 

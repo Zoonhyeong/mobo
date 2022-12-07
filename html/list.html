@@ -63,7 +63,7 @@
                     </div>
                     `
 
-                    fetch("http://127.0.0.1:8000/api/members/test10/subscribes-groups",{
+                    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name')+"/subscribes-groups",{
                         method: "POST",
                         headers: {
                         "Content-Type": "application/json",
@@ -114,11 +114,11 @@
         <div id="text-bord2">
             <div class="list-line list-profile">
                 <p class="list-nickname" id="nickname" value=""></p>
-                <img src="../img/profile.png" alt="프로필사진" onclick="go_mypage()">
+                <img src="../img/profile.png" alt="프로필사진" onclick="go_mypage()" id="profile-image">
             </div>
             <div class="list-line list-total">
                 <p class="list-title">11월 총 구독비용</p>
-                <p class="list-total-price"><span>0</span>원</p>
+                <p class="list-total-price"><span id="total-price"></span>원</p>
             </div>
             <div class="list-line list-sub-scroll">
                 <p class="list-title">나의 구독 정보</p>
