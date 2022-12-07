@@ -37,11 +37,12 @@ function put_data(){
                 nickname: nickname.value,
                 email: email.value,
                 profile: intro.value,
+                phone: "",
             }),
         })
     .then((result) => {console.log(result);
         result.json();
-        //location='mypage.html'
+        location='mypage.html'
     })
     .then((data)=> {
         console.log(data);
