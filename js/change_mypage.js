@@ -41,6 +41,7 @@ function put_data(){
         })
     .then((result) => {console.log(result);
         result.json();
+        //location='mypage.html'
     })
     .then((data)=> {
         console.log(data);
