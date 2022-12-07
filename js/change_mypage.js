@@ -3,7 +3,7 @@ const email = document.querySelector("#user-email")
 const intro = document.querySelector("#user-intro")
 
 window.onload = function() {
-    fetch("http://127.0.0.1:8000/api/members/test3",{
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name'),{
         method: "get",
     })
     .then((result) => {console.log(result);
@@ -27,7 +27,7 @@ window.onload = function() {
 }
 
 function put_data(){
-    fetch("http://127.0.0.1:8000/api/members/test3",{
+    fetch("http://127.0.0.1:8000/api/members/"+window.localStorage.getItem('name'),{
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
@@ -48,4 +48,8 @@ function put_data(){
     .catch((error)=>{
         console.log(error);
     });
+}
+
+function lastPage(){
+    history.back();
 }
